@@ -1,75 +1,74 @@
-# Previsão de Preços de Imóveis no Airbnb do Rio de Janeiro
+# Property Price Prediction (Airbnb)
 
-### Contexto
+### Context
 
-No Airbnb, qualquer pessoa que tenha um quarto ou um imóvel de qualquer tipo (apartamento, casa, chalé, pousada, etc.) pode ofertar o seu imóvel para ser alugado por diária.
+On Airbnb, anyone who owns a room or a property (apartment, house, cottage, inn, etc.) can list it to be rented by the day.
 
-Você cria o seu perfil de host (pessoa que disponibiliza um imóvel para aluguel por diária) e cria o anúncio do seu imóvel.
+You create your host profile (the person who makes a property available for daily rental) and create your property listing.
 
-Nesse anúncio, o host deve descrever as características do imóvel da forma mais completa possível, de forma a ajudar os locadores/viajantes a escolherem o melhor imóvel para eles (e de forma a tornar o seu anúncio mais atrativo)
+In this listing, the host should describe the property's features as completely as possible, helping guests choose the most suitable place (and making the listing more attractive).
 
-Existem dezenas de personalizações possíveis no seu anúncio, desde quantidade mínima de diária, preço, quantidade de quartos, até regras de cancelamento, taxa extra para hóspedes extras, exigência de verificação de identidade do locador, etc.
+There are dozens of customization options, such as minimum stay, price, number of rooms, cancellation rules, extra guest fees, ID verification requirements, and more.
 
-### Nosso objetivo
+### Our Goal
 
-Construir um modelo de previsão de preço que permita uma pessoa comum que possui um imóvel possa saber quanto deve cobrar pela diária do seu imóvel.
+To build a price prediction model that helps an ordinary person estimate how much they should charge per night for their property.
 
-Ou ainda, para o locador comum, dado o imóvel que ele está buscando, ajudar a saber se aquele imóvel está com preço atrativo (abaixo da média para imóveis com as mesmas características) ou não.
+Or, for guests, to identify whether a given property is well-priced (below the average for similar listings) or overpriced.
 
-### O que temos disponível, inspirações e créditos
+### Available Resources, Inspiration and Credits
 
-As bases de dados foram retiradas do site kaggle: https://www.kaggle.com/allanbruno/airbnb-rio-de-janeiro
+The datasets used in this project were obtained from Kaggle: https://www.kaggle.com/allanbruno/airbnb-rio-de-janeiro
 
-## Sumário
+## Table of Contents
 
-- [Contexto](#contexto)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Bibliotecas Utilizadas](#bibliotecas-utilizadas)
-- [Como Executar o Projeto](#como-executar-o-projeto)
-- [Detalhes do Modelo](#detalhes-do-modelo)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Context](#context)
+- [Project Structure](#project-structure)
+- [Libraries Used](#libraries-used)
+- [How to Run the Project](#how-to-run-the-project)
+- [Model Details](#model-details)
+- [Contribution](#contribution)
+- [License](#license)
 
+## Project Structure
 
+- `deployprojeto.py`: Main script implementing the prediction interface using Streamlit.
+- `modelo.joblib`: File containing the trained model (ExtraTreesRegressor).
+- `dados.csv`: Dataset used for training and testing the model.
+- `README.md`: Project documentation file.
 
-## Estrutura do Projeto
+## Libraries Used
 
-- `deployprojeto.py`: Script principal que implementa a interface de previsão utilizando o Streamlit.
-- `modelo.joblib`: Arquivo contendo o modelo treinado (ExtraTreesRegressor).
-- `dados.csv`: Conjunto de dados utilizado para treinamento e teste do modelo.
-- `README.md`: Documento de explicação do projeto.
+The following Python libraries were used to build this project:
 
-## Bibliotecas Utilizadas
+- `pandas`: Data manipulation and analysis.
+- `pathlib`: Handling of file and directory paths.
+- `numpy`: Numerical computing.
+- `seaborn`: Data visualization built on matplotlib.
+- `matplotlib`: Library for static, animated, and interactive plots.
+- `plotly`: Interactive graphing library.
+- `scikit-learn`: Machine learning tools for data analysis and predictive modeling.
+- `gc`: Interface for Python's garbage collection.
+- `streamlit`: Framework for building interactive web apps for data science.
 
-As seguintes bibliotecas Python foram utilizadas para a construção deste projeto:
+## How to Run the Project
 
-- `pandas`: Manipulação e análise de dados.
-- `pathlib`: Manipulação de caminhos de arquivos e diretórios.
-- `numpy`: Computação numérica.
-- `seaborn`: Visualização de dados baseada no matplotlib.
-- `matplotlib`: Biblioteca de plotagem para criar gráficos estáticos, animados e interativos.
-- `plotly`: Biblioteca de visualização gráfica interativa.
-- `scikit-learn`: Ferramentas de machine learning para análise de dados e modelagem preditiva.
-- `gc`: Interface para coleta de lixo (garbage collection) no Python.
-- `streamlit`: Framework para criação de aplicações web interativas para Data Science.
-
-## Como Executar o Projeto
-
-### Pré-requisitos
+### Prerequisites
 
 - Python 3.x
-- Instalar as bibliotecas necessárias:
+- Install the required libraries:
 
 ```bash
-pip install pandas numpy seaborn matplotlib plotly scikit-learn streamlit joblib```
-Detalhes do Modelo
-O modelo utilizado para a previsão de preços é o ExtraTreesRegressor, que foi treinado com os dados disponíveis em dados.csv. As características do imóvel, como latitude, longitude, número de quartos, tipo de imóvel, entre outras, são utilizadas como input para o modelo.
+pip install pandas numpy seaborn matplotlib plotly scikit-learn streamlit joblib
+```
 
-Métricas de Avaliação
-O desempenho do modelo foi avaliado utilizando as seguintes métricas:
+## Model Details
 
-R² (R-Squared): Métrica que indica o quão bem o modelo se ajusta aos dados observados.
-RMSE (Root Mean Squared Error): Mede a diferença média entre os valores previstos e os valores observados.
+The model used for price prediction is the **ExtraTreesRegressor**, trained on the available `dados.csv` dataset. Property features such as latitude, longitude, number of bedrooms, property type, among others, are used as input variables.
 
+### Evaluation Metrics
 
+The model’s performance was assessed using the following metrics:
 
+- **R² (R-Squared)**: Measures how well the model fits the observed data. A higher R² means better explanatory power.
+- **RMSE (Root Mean Squared Error)**: Indicates the average magnitude of the error between predicted and actual prices. Lower RMSE means better model accuracy.
