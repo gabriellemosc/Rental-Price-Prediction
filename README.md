@@ -62,6 +62,9 @@ The following Python libraries were used to build this project:
 pip install pandas numpy seaborn matplotlib plotly scikit-learn streamlit joblib
 ```
 
+## The Interface for Making New Predictions
+![GUI of the forecast price](https://github.com/gabriellemosc/Rental-Price-Prediction/blob/main/Captura%20de%20tela%202024-08-25%20151801.png)
+
 ## Model Details
 
 The model used for price prediction is the **ExtraTreesRegressor**, trained on the available `dados.csv` dataset. Property features such as latitude, longitude, number of bedrooms, property type, among others, are used as input variables.
